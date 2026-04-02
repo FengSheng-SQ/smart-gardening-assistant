@@ -1,0 +1,28 @@
+name: gardening-assistant
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    # Web框架
+    - fastapi==0.135.3
+    - uvicorn[standard]==0.27.0
+    - websockets>=13.0
+
+    # 数据验证
+    - pydantic==2.5.3
+    - pydantic-settings==2.1.0
+
+    # ASR
+    - funasr>=1.0.25
+
+    # TTS - Coqui TTS
+    - TTS>=0.22.0
+
+    # HTTP客户端
+    - httpx==0.26.0
+
+    # 工具
+    - python-dotenv==1.0.0

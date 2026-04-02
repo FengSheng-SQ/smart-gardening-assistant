@@ -1,0 +1,89 @@
+# 环境变量文件（包含敏感信息）
+server/.env
+frontend/assets/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 日志文件
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.metadata
+*.swp
+*.swo
+*~
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+frontend/build/
+frontend/.dart_tool/
+frontend/.idea/
+frontend/.flutter-plugins-dependencies
+frontend/pubspec.lock
+
+# Android
+frontend/android/.gradle/
+frontend/android/.kotlin/
+frontend/android/build/
+frontend/android/local.properties
+frontend/android/*.iml
+
+# 模型文件和数据
+*.pkl
+*.pth
+*.pt
+*.onnx
+data/
+models/
+
+# 临时文件
+*.tmp
+*.temp
+nulrmdir
+fix_android.bat
+
+# 测试文件
+test_*.py
+test_*.wav
+check_*.py
+download_*.py

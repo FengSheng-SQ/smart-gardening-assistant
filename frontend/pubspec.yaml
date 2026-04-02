@@ -1,0 +1,44 @@
+name: gardening_assistant
+description: 智能种植助手APP
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  web_socket_channel: ^2.4.0
+  permission_handler: ^11.1.0
+  record: ^6.2.0
+  audioplayers: ^5.2.1
+  provider: ^6.1.1
+  flutter_dotenv: ^5.1.0
+  web: ^1.1.1
+  image_picker: ^1.0.4  # 添加图片选择功能
+  http: ^1.1.0  # 添加HTTP请求功能
+  shared_preferences: ^2.2.2  # 本地存储登录状态
+  table_calendar: ^3.0.9  # 日历组件
+  intl: ^0.18.1  # 日期格式化
+  geolocator: ^10.1.0  # GPS定位功能
+  geocoding: ^2.1.0  # 反向地理编码，将坐标转换为地址
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "icon.png"
+  adaptive_icon_background: "#4CAF50"
+  adaptive_icon_foreground: "icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/.env

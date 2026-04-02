@@ -1,0 +1,26 @@
+# 智能种植助手
+# Python 3.11
+
+# Web框架
+fastapi==0.135.3
+uvicorn[standard]==0.27.0
+websockets>=13.0
+
+# 数据验证
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# ASR
+funasr>=1.0.25
+
+# TTS - Coqui TTS
+TTS>=0.22.0  # Coqui TTS
+
+# HTTP客户端
+httpx==0.26.0
+
+# MCP SDK
+mcp[cli]>=1.4.1
+
+# 工具
+python-dotenv==1.0.0
