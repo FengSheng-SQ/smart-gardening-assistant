@@ -14,7 +14,11 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# 只忽略Python虚拟环境的lib，不忽略Flutter的lib
+venv/lib/
+env/lib/
+ENV/lib/
+.venv/lib/
 lib64/
 parts/
 sdist/
@@ -74,7 +78,9 @@ frontend/android/*.iml
 *.pt
 *.onnx
 data/
-models/
+# 不要忽略源代码中的models目录，只忽略训练好的模型文件
+# 如果需要忽略特定目录，请使用完整路径，如：
+# server/trained_models/
 
 # 临时文件
 *.tmp

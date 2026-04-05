@@ -18,7 +18,6 @@ class LocationExtractor:
         # 直辖市
         "北京", "上海", "天津", "重庆",
 
-        # 省会城市
         "广州", "深圳", "成都", "杭州", "武汉", "西安", "南京",
         "郑州", "长沙", "沈阳", "哈尔滨", "济南", "青岛", "大连",
         "厦门", "福州", "苏州", "宁波", "合肥", "南昌", "昆明",
@@ -81,22 +80,25 @@ class LocationExtractor:
 
         message = message.strip()
 
-        # 方法1: 直接匹配城市列表
+        # 方法1: 直接匹配城市列表（优先级最高）
         for city in cls.CITIES:
             if city in message:
                 logger.info(f"🎯 从消息中提取到城市: {city}")
                 return city
 
-        # 方法2: 使用正则表达式匹配模式
+        # 方法2: 使用正则表达式匹配模式（必须验证在CITIES中）
         for pattern in cls.LOCATION_PATTERNS:
             match = re.search(pattern, message)
             if match:
                 city = match.group(1)
-                if city in cls.CITIES or len(city) >= 2:
+                # 严格验证：提取的城市必须在CITIES列表中
+                if city in cls.CITIES:
                     logger.info(f"🎯 从消息中提取到城市: {city}")
                     return city
+                else:
+                    logger.info(f"⚠️  提取到'{city}'但不在城市列表中，忽略")
 
-        # 方法3: 查找"天气"前面的词语
+        # 方法3: 查找"天气"前面的词语（必须验证在CITIES中）
         weather_index = message.find('天气')
         if weather_index > 0:
             # 获取"天气"前的10个字符
@@ -105,10 +107,12 @@ class LocationExtractor:
             words = before_text.split()
             if words:
                 last_word = words[-1].rstrip('，。、！？')
+                # 严格验证：必须在CITIES列表中
                 if len(last_word) >= 2 and last_word in cls.CITIES:
                     logger.info(f"🎯 从消息中提取到城市: {last_word}")
                     return last_word
 
+        logger.info(f"ℹ️  未能从消息中提取到有效的城市名称")
         return None
 
     @classmethod
